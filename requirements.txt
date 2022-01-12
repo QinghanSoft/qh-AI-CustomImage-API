@@ -9,3 +9,5 @@ azure-cognitiveservices-vision-customvision
 pillow
 requests
 lxml
+azure.storage.blob
+werkzeug
