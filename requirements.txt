@@ -8,3 +8,4 @@ azure-cognitiveservices-vision-computervision
 azure-cognitiveservices-vision-customvision
 pillow
 requests
+lxml
