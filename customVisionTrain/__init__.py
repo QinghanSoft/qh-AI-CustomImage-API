@@ -78,7 +78,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 def set_img_list(query):
     url = 'https://cn.bing.com/images/async?q='+query+'&first=1&count=35&relp=50&scenario=ImageBasicHover&datsrc=N_I&layout=RowBased&mmasync=1'
     img_list = parse_img(url)
-    url = 'https://cn.bing.com/images/async?q='+query+'&first=2&count=29&relp=50&scenario=ImageBasicHover&datsrc=N_I&layout=RowBased&mmasync=1'
+    url = 'https://cn.bing.com/images/async?q='+query+'&first=2&count=15&relp=50&scenario=ImageBasicHover&datsrc=N_I&layout=RowBased&mmasync=1'
     img_list = img_list + parse_img(url)
     logging.info(len(img_list))
     return img_list
