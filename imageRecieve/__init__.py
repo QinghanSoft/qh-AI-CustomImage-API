@@ -6,21 +6,20 @@ import os, uuid
 from werkzeug.utils import secure_filename
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
+    
     image = req.files.to_dict()['file']
-    logging.info(type(image))
-    logging.info(image)
 
     # image = req.files['image']
     # image.save(f"./static/{secure_filename(image.filename)}")
     # imageFilePath = f"./static/{secure_filename(image.filename)}"
 
-    connect_str = 'DefaultEndpointsProtocol=https;AccountName=qhcustomvisionstorage;AccountKey=x6NgT9Z8yB+/UC93j5yUntldQy6IU6X61idFcCsSv45xsLqWLGPk9A4Unr3iXa9FriHOV2awfBlkvI6KoMqG2g==;EndpointSuffix=core.windows.net'
+    qhcustomvisionstorage = os.environ["qhcustomvisionstorage"]
         
 
     try:
         logging.info("Azure Blob Storage v" + __version__ + " - Python quickstart sample")
             
-        blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+        blob_service_client = BlobServiceClient.from_connection_string(qhcustomvisionstorage)
 
         container_name = str('testcontainer')
 
@@ -40,6 +39,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     baseURL = 'https://qhcustomvisionstorage.blob.core.windows.net/testcontainer/'
     url = baseURL+image.filename
+
+    
 
     return func.HttpResponse(url,
               status_code=200
